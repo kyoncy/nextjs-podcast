@@ -1,8 +1,9 @@
-import { FC } from "react"
+import { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import AudioPlayControlButton from '../components/Molecules/Button/AudioPlayControlButton'
 
-const Home: FC = () => {
+const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -14,6 +15,8 @@ const Home: FC = () => {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <AudioPlayControlButton />
       </main>
     </div>
   )
