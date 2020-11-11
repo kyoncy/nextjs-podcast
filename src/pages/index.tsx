@@ -2,7 +2,7 @@ import { Howl } from 'howler';
 import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import AudioPlayControlButton from '../components/Molecules/Button/AudioPlayControlButton'
+import AudioPlayControlButton from '../components/Organisms/AudioControlButtons'
 // TODO: 仮でここにオーディオファイル置いてるだけなので適切な場所に
 import sample from '../audio/sample.mp3'
 
