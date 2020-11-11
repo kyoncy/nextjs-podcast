@@ -29,10 +29,28 @@ const AudioPlayControlButton: React.FC<AudioPlayControlButtonProps> = ({
     audio.pause()
   }
 
+  const onClickBackSkip = () => {
+    const currentPos = audio.seek() as number
+    const targetPos = currentPos - 10 >= 0 ? currentPos - 10 : 0
+
+    audio.seek(targetPos)
+  }
+
+  const onClickForwardSkip = () => {
+    const duration = audio.duration()
+
+    const currentPos = audio.seek() as number
+    const targetPos = currentPos + 10 < duration ? currentPos + 10 : duration
+
+    audio.seek(targetPos)
+  }
+
   return (
     <Wrapper className={className} margin={margin}>
+      <Button onClick={onClickBackSkip} margin={"4px"}>10秒戻す</Button>
       <Button onClick={onClickPlay} margin={"4px"}>再生</Button>
       <Button onClick={onClickPause} margin={"4px"}>停止</Button>
+      <Button onClick={onClickForwardSkip} margin={"4px"}>10秒進める</Button>
     </Wrapper>
   )
 }

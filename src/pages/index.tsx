@@ -16,7 +16,7 @@ const Home: NextPage<HomeProps> = ({ audioFile }) => {
   audio = new Howl({
     src: [audioFile],
     autoplay: false,
-    loop: true,
+    loop: false,
     volume: 0.5,
   });
 
