@@ -1,9 +1,25 @@
-import { NextPage } from 'next'
+import { Howl } from 'howler';
+import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import AudioPlayControlButton from '../components/Molecules/Button/AudioPlayControlButton'
+// TODO: 仮でここにオーディオファイル置いてるだけなので適切な場所に
+import sample from '../audio/sample.mp3'
 
-const Home: NextPage = () => {
+interface HomeProps {
+  audioFile: string
+}
+
+const Home: NextPage<HomeProps> = ({ audioFile }) => {
+  let audio: Howl
+
+  audio = new Howl({
+    src: [audioFile],
+    autoplay: false,
+    loop: true,
+    volume: 0.5,
+  });
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,10 +32,18 @@ const Home: NextPage = () => {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <AudioPlayControlButton />
+        <AudioPlayControlButton audio={audio} />
       </main>
     </div>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      audioFile: sample
+    }
+  }
 }
 
 export default Home

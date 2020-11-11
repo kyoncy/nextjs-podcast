@@ -1,12 +1,10 @@
-import { useEffect } from 'react'
 import { Howl } from 'howler';
 import styled from 'styled-components'
 import Button from '../../Atoms/Button'
-// TODO: 仮でここにオーディオファイル置いてるだけなので適切な場所に
-import sample from '../../../audio/sample.mp3'
 
 interface AudioPlayControlButtonProps {
-  classname?: string;
+  audio: Howl;
+  className?: string;
   margin?: string;
 };
 
@@ -19,23 +17,10 @@ const Wrapper = styled.div<
 `;
 
 const AudioPlayControlButton: React.FC<AudioPlayControlButtonProps> = ({
-  classname,
+  audio,
+  className,
   margin = '0 0 0 0',
 }) => {
-  let audio: Howl
-
-  useEffect(() => {
-    audio = new Howl({
-      src: [sample],
-      autoplay: false,
-      loop: true,
-      volume: 0.5,
-      onend: () => {
-        console.log('Finished!');
-      }
-    });
-  })
-
   const onClickPlay = () => {
     audio.play()
   }
@@ -45,9 +30,9 @@ const AudioPlayControlButton: React.FC<AudioPlayControlButtonProps> = ({
   }
 
   return (
-    <Wrapper classname={classname} margin={margin}>
-      <Button onClick={onClickPlay}>再生</Button>
-      <Button onClick={onClickPause}>停止</Button>
+    <Wrapper className={className} margin={margin}>
+      <Button onClick={onClickPlay} margin={"4px"}>再生</Button>
+      <Button onClick={onClickPause} margin={"4px"}>停止</Button>
     </Wrapper>
   )
 }
