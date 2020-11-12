@@ -8,9 +8,19 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint'
+    'plugin:react/recommended',
+    'prettier/@typescript-eslint',
+    'prettier/react',
   ],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
   rules: {
-    "prettier/prettier": "error",
+    'prettier/prettier': 'error',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
   },
 };
