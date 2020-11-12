@@ -28,16 +28,16 @@ const AudioControlButtons: React.FC<AudioControlButtonsProps> = ({
   const [playing, setPlaying] = useState(false)
 
   const onClickPlay = () => {
-    setPlaying(true)
     if (!audio.playing()) {
       audio.play()
+      setPlaying(true)
     }
   }
 
   const onClickPause = () => {
-    setPlaying(false)
     if (audio.playing()) {
       audio.pause()
+      setPlaying(false)
     }
   }
 
@@ -55,6 +55,9 @@ const AudioControlButtons: React.FC<AudioControlButtonsProps> = ({
 
     audio.seek(targetPos)
   }
+
+  audio.on('end', () => setPlaying(false))
+  audio.on('stop', () => setPlaying(false))
 
   return (
     <Wrapper className={className} margin={margin}>
