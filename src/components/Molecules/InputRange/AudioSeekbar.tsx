@@ -11,21 +11,31 @@ const AudioSeekbar: React.FC<AudioSeekbarProps> = ({
   audio,
 }) => {
   const [value, setValue] = useState(0)
+  let intervalId = 0;
 
-  // useEffect(() => {
-  //   audio.on('seek', () => {
-  //     setValue(audio.seek() as number)
-  //   })
+  const updateSeekbar = () => {
+    setValue(audio.seek() as number)
+  }
 
-  //   return () => { audio.off('seek') }
-  // })
+  useEffect(() => {
+    audio.on('play', () => {
+      clearInterval(intervalId)
+      intervalId = setInterval(updateSeekbar, 1000)
+    })
+    audio.on('seek', () => {
+      clearInterval(intervalId)
+      intervalId = setInterval(updateSeekbar, 1000)
+    })
+    audio.on('pause', () => clearInterval(intervalId))
+    audio.on('stop', () => clearInterval(intervalId))
+  })
 
   return (
     <InputRange
       min={0}
       max={Math.round(audio.duration())}
       formatLabel={formatSeconds}
-      value={value}
+      value={Math.round(value)}
       onChange={setValue}
     />
   )

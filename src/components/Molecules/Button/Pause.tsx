@@ -9,7 +9,9 @@ const Pause: React.FC<PauseProps> = ({
   audio,
 }) => {
   const onClickPause = () => {
-    audio.pause()
+    if (audio.playing()) {
+      audio.pause()
+    }
   }
 
   return (

@@ -29,10 +29,6 @@ const Home: NextPage<HomeProps> = ({ audioFile }) => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
         <AudioPlayControlButton audio={audio} />
         <AudioSeekbar audio={audio} />
       </main>

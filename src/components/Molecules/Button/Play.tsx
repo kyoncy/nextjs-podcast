@@ -9,7 +9,9 @@ const Play: React.FC<PlayProps> = ({
   audio,
 }) => {
   const onClickPlay = () => {
-    audio.play()
+    if (!audio.playing()) {
+      audio.play()
+    }
   }
 
   return (
