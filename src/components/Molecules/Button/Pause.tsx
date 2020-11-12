@@ -5,19 +5,15 @@ import Button from '../../Atoms/Button'
 
 interface PauseProps {
   audio: Howl;
+  onClick: () => void;
 };
 
 const Pause: React.FC<PauseProps> = ({
   audio,
+  onClick,
 }) => {
-  const onClickPause = () => {
-    if (audio.playing()) {
-      audio.pause()
-    }
-  }
-
   return (
-    <Button onClick={onClickPause} margin={"4px"} borderRadius={"100px"}>
+    <Button onClick={onClick} margin={"4px"} borderRadius={"100px"}>
       <FontAwesomeIcon icon={faPause} />
     </Button>
   )
