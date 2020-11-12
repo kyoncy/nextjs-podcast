@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
 interface ButtonProps {
-  children: React.ReactNode;
-  className?: string;
-  width?: string;
-  borderRadius?: string;
-  color?: string;
-  margin?: string;
-  onClick?: () => void;
-  disabled?: boolean;
-};
+  children: React.ReactNode
+  className?: string
+  width?: string
+  borderRadius?: string
+  color?: string
+  margin?: string
+  onClick?: () => void
+  disabled?: boolean
+}
 
 const StyledButton = styled.button<
   Pick<ButtonProps, 'width' | 'borderRadius' | 'color' | 'margin'>
@@ -22,7 +22,7 @@ const StyledButton = styled.button<
   border-radius: ${({ borderRadius }) => borderRadius};
   color: ${({ color }) => color};
   margin: ${({ margin }) => margin};
-`;
+`
 
 const Button: React.FC<ButtonProps> = ({
   children,
@@ -46,7 +46,7 @@ const Button: React.FC<ButtonProps> = ({
     >
       {children}
     </StyledButton>
-  );
-};
+  )
+}
 
 export default Button

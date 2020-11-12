@@ -1,17 +1,14 @@
-import { Howl } from 'howler';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faForward } from '@fortawesome/free-solid-svg-icons/faForward';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faForward } from '@fortawesome/free-solid-svg-icons/faForward'
 import Button from '../../Atoms/Button'
 
 interface SkipForwardProps {
-  onClick: () => void;
-};
+  onClick: () => void
+}
 
-const SkipForward: React.FC<SkipForwardProps> = ({
-  onClick,
-}) => {
+const SkipForward: React.FC<SkipForwardProps> = ({ onClick }) => {
   return (
-    <Button onClick={onClick} margin={"4px"} borderRadius={"100px"}>
+    <Button onClick={onClick} margin={'4px'} borderRadius={'100px'}>
       <FontAwesomeIcon icon={faForward} />
     </Button>
   )

@@ -1,24 +1,22 @@
 import { useState, useEffect } from 'react'
-import { Howl } from 'howler';
-import InputRange from '../../Atoms/InputRange';
+import { Howl } from 'howler'
+import InputRange from '../../Atoms/InputRange'
 import formatSeconds from '../../../utils/formatSeconds'
 
 interface AudioSeekbarProps {
-  audio: Howl;
+  audio: Howl
 }
 
-const AudioSeekbar: React.FC<AudioSeekbarProps> = ({
-  audio,
-}) => {
+const AudioSeekbar: React.FC<AudioSeekbarProps> = ({ audio }) => {
   const [value, setValue] = useState(0)
-  let intervalId = 0;
+  let intervalId = 0
 
   const updateSeekbar = () => {
     setValue(audio.seek() as number)
   }
 
   const onChangeSeekbar = (position: number) => {
-    audio.seek(position);
+    audio.seek(position)
   }
 
   useEffect(() => {
@@ -48,4 +46,3 @@ const AudioSeekbar: React.FC<AudioSeekbarProps> = ({
 }
 
 export default AudioSeekbar
-

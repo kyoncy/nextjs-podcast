@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "lint": "eslint . --ext .js,.ts,.tsx",
+    "lint:fix": "yarn lint --fix",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
@@ -24,7 +26,14 @@
     "@types/react": "16.9.56",
     "@types/react-dom": "16.9.9",
     "@types/styled-components": "5.1.4",
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
+    "@typescript-eslint/parser": "^4.7.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
     "file-loader": "6.2.0",
+    "prettier": "^2.1.2",
     "typescript": "4.0.5",
     "url-loader": "4.1.1"
   }
