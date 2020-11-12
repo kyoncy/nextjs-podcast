@@ -17,6 +17,10 @@ const AudioSeekbar: React.FC<AudioSeekbarProps> = ({
     setValue(audio.seek() as number)
   }
 
+  const onChangeSeekbar = (position: number) => {
+    audio.seek(position);
+  }
+
   useEffect(() => {
     audio.on('play', () => {
       clearInterval(intervalId)
@@ -36,7 +40,7 @@ const AudioSeekbar: React.FC<AudioSeekbarProps> = ({
       max={Math.round(audio.duration())}
       formatLabel={formatSeconds}
       value={Math.round(value)}
-      onChange={setValue}
+      onChange={onChangeSeekbar}
     />
   )
 }
