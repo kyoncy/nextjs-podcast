@@ -2,7 +2,7 @@ import { Howl } from 'howler';
 import styled from 'styled-components'
 import Play from '../Molecules/Button/Play'
 import Pause from '../Molecules/Button/Pause'
-import SkipBack from '../Molecules/Button/SkipBack'
+import SkipBackward from '../Molecules/Button/SkipBackward'
 import SkipForward from '../Molecules/Button/SkipForward'
 
 interface AudioControlButtonsProps {
@@ -26,7 +26,7 @@ const AudioControlButtons: React.FC<AudioControlButtonsProps> = ({
 }) => {
   return (
     <Wrapper className={className} margin={margin}>
-      <SkipBack audio={audio} />
+      <SkipBackward audio={audio} />
       <Play audio={audio} />
       <Pause audio={audio} />
       <SkipForward audio={audio} />

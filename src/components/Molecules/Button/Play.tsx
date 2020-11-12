@@ -1,4 +1,6 @@
 import { Howl } from 'howler';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay } from '@fortawesome/free-solid-svg-icons/faPlay';
 import Button from '../../Atoms/Button'
 
 interface PlayProps {
@@ -15,7 +17,9 @@ const Play: React.FC<PlayProps> = ({
   }
 
   return (
-    <Button onClick={onClickPlay} margin={"4px"}>再生</Button>
+    <Button onClick={onClickPlay} margin={"4px"} borderRadius={"100px"}>
+      <FontAwesomeIcon icon={faPlay} />
+    </Button>
   )
 }
 
