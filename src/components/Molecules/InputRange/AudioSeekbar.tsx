@@ -23,10 +23,12 @@ const AudioSeekbar: React.FC<AudioSeekbarProps> = ({
 
   useEffect(() => {
     audio.on('play', () => {
+      updateSeekbar()
       clearInterval(intervalId)
       intervalId = setInterval(updateSeekbar, 1000)
     })
     audio.on('seek', () => {
+      updateSeekbar()
       clearInterval(intervalId)
       intervalId = setInterval(updateSeekbar, 1000)
     })
