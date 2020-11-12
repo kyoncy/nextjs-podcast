@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "lint": "eslint src --ext .js,.ts,.tsx",
+    "lint": "eslint . --ext .js,.ts,.tsx",
+    "lint:fix": "yarn lint --fix",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"

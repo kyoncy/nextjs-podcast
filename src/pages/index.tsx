@@ -1,4 +1,4 @@
-import { Howl } from 'howler';
+import { Howl } from 'howler'
 import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
@@ -12,14 +12,12 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ audioFile }) => {
-  let audio: Howl
-
-  audio = new Howl({
+  const audio = new Howl({
     src: [audioFile],
     autoplay: false,
     loop: false,
     volume: 0.5,
-  });
+  })
 
   return (
     <div className={styles.container}>
@@ -39,8 +37,8 @@ const Home: NextPage<HomeProps> = ({ audioFile }) => {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      audioFile: sample
-    }
+      audioFile: sample,
+    },
   }
 }
 

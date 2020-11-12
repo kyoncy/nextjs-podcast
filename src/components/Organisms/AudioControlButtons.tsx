@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Howl } from 'howler';
+import { Howl } from 'howler'
 import styled from 'styled-components'
 import Play from '../Molecules/Button/Play'
 import Pause from '../Molecules/Button/Pause'
@@ -7,18 +7,16 @@ import SkipBackward from '../Molecules/Button/SkipBackward'
 import SkipForward from '../Molecules/Button/SkipForward'
 
 interface AudioControlButtonsProps {
-  audio: Howl;
-  className?: string;
-  margin?: string;
-};
+  audio: Howl
+  className?: string
+  margin?: string
+}
 
-const Wrapper = styled.div<
-  Pick<AudioControlButtonsProps, 'margin'>
->`
+const Wrapper = styled.div<Pick<AudioControlButtonsProps, 'margin'>>`
   display: flex;
   align-items: center;
   margin: ${({ margin }) => margin};
-`;
+`
 
 const AudioControlButtons: React.FC<AudioControlButtonsProps> = ({
   audio,
@@ -62,7 +60,11 @@ const AudioControlButtons: React.FC<AudioControlButtonsProps> = ({
   return (
     <Wrapper className={className} margin={margin}>
       <SkipBackward onClick={onClickSkipBackward} />
-      {playing ? <Pause onClick={onClickPause} /> : <Play onClick={onClickPlay} />}
+      {playing ? (
+        <Pause onClick={onClickPause} />
+      ) : (
+        <Play onClick={onClickPlay} />
+      )}
       <SkipForward onClick={onClickSkipForward} />
     </Wrapper>
   )
