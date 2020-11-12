@@ -4,12 +4,10 @@ import { faPause } from '@fortawesome/free-solid-svg-icons/faPause';
 import Button from '../../Atoms/Button'
 
 interface PauseProps {
-  audio: Howl;
   onClick: () => void;
 };
 
 const Pause: React.FC<PauseProps> = ({
-  audio,
   onClick,
 }) => {
   return (

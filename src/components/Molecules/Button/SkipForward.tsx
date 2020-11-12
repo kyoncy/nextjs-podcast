@@ -4,23 +4,14 @@ import { faForward } from '@fortawesome/free-solid-svg-icons/faForward';
 import Button from '../../Atoms/Button'
 
 interface SkipForwardProps {
-  audio: Howl;
+  onClick: () => void;
 };
 
 const SkipForward: React.FC<SkipForwardProps> = ({
-  audio,
+  onClick,
 }) => {
-  const onClickSkipForward = () => {
-    const duration = audio.duration()
-
-    const currentPos = audio.seek() as number
-    const targetPos = currentPos + 10 < duration ? currentPos + 10 : duration
-
-    audio.seek(targetPos)
-  }
-
   return (
-    <Button onClick={onClickSkipForward} margin={"4px"} borderRadius={"100px"}>
+    <Button onClick={onClick} margin={"4px"} borderRadius={"100px"}>
       <FontAwesomeIcon icon={faForward} />
     </Button>
   )

@@ -41,11 +41,26 @@ const AudioControlButtons: React.FC<AudioControlButtonsProps> = ({
     }
   }
 
+  const onClickSkipBackward = () => {
+    const currentPos = audio.seek() as number
+    const targetPos = currentPos - 10 >= 0 ? currentPos - 10 : 0
+
+    audio.seek(targetPos)
+  }
+
+  const onClickSkipForward = () => {
+    const duration = audio.duration()
+    const currentPos = audio.seek() as number
+    const targetPos = currentPos + 10 < duration ? currentPos + 10 : duration
+
+    audio.seek(targetPos)
+  }
+
   return (
     <Wrapper className={className} margin={margin}>
-      <SkipBackward audio={audio} />
-      {playing ? <Pause audio={audio} onClick={onClickPause} /> : <Play audio={audio} onClick={onClickPlay} />}
-      <SkipForward audio={audio} />
+      <SkipBackward onClick={onClickSkipBackward} />
+      {playing ? <Pause onClick={onClickPause} /> : <Play onClick={onClickPlay} />}
+      <SkipForward onClick={onClickSkipForward} />
     </Wrapper>
   )
 }
