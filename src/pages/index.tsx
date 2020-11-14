@@ -4,6 +4,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import AudioPlayControlButton from '../components/Organisms/AudioControlButtons'
 import AudioSeekbar from '../components/Molecules/InputRange/AudioSeekbar'
+import VolumeSeekbar from '../components/Molecules/InputRange/VolumeSeekbar'
 // TODO: 仮でここにオーディオファイル置いてるだけなので適切な場所に
 import sample from '../audio/sample.mp3'
 
@@ -27,6 +28,7 @@ const Home: NextPage<HomeProps> = ({ audioFile }) => {
       </Head>
 
       <main className={styles.main}>
+        <VolumeSeekbar audio={audio} />
         <AudioPlayControlButton audio={audio} />
         <AudioSeekbar audio={audio} />
       </main>
