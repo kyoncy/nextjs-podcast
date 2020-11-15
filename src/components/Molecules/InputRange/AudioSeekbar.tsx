@@ -11,7 +11,7 @@ interface AudioSeekbarProps {
 }
 
 const StyledDiv = styled.div`
-  width: 400px;
+  width: 100%;
 `
 
 const AudioSeekbar: React.FC<AudioSeekbarProps> = ({ audio }) => {

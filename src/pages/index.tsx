@@ -1,7 +1,9 @@
 import { Howl } from 'howler'
 import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
+import Footer from '../components/templates/Footer'
 import AudioPlayControlButton from '../components/Organisms/AudioControlButtons'
 import AudioSeekbar from '../components/Molecules/InputRange/AudioSeekbar'
 import VolumeSeekbar from '../components/Molecules/InputRange/VolumeSeekbar'
@@ -21,9 +23,9 @@ const Home: NextPage<HomeProps> = ({ audioFile }) => {
   })
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Podcast</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
@@ -31,11 +33,18 @@ const Home: NextPage<HomeProps> = ({ audioFile }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <VolumeSeekbar audio={audio} />
-        <AudioPlayControlButton audio={audio} />
-        <AudioSeekbar audio={audio} />
-      </main>
+      <Container maxWidth="sm">
+        hoge
+        <Footer>
+          <Grid container sm={8} justify="center" alignItems="center">
+            <AudioPlayControlButton audio={audio} />
+            <AudioSeekbar audio={audio} />
+          </Grid>
+          <Grid container sm={4} justify="center" alignItems="center">
+            <VolumeSeekbar audio={audio} />
+          </Grid>
+        </Footer>
+      </Container>
     </div>
   )
 }
