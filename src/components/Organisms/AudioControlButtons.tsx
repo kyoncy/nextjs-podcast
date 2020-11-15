@@ -1,28 +1,17 @@
 import { useState } from 'react'
 import { Howl } from 'howler'
 import styled from 'styled-components'
-import Play from '../Molecules/Button/Play'
-import Pause from '../Molecules/Button/Pause'
-import SkipBackward from '../Molecules/Button/SkipBackward'
-import SkipForward from '../Molecules/Button/SkipForward'
+import IconButton from '../Atoms/IconButton'
+import PlayArrowIcon from '@material-ui/icons/PlayArrow'
+import PauseIcon from '@material-ui/icons/Pause'
+import Replay10Icon from '@material-ui/icons/Replay10'
+import Forward10Icon from '@material-ui/icons/Forward10'
 
 interface AudioControlButtonsProps {
   audio: Howl
-  className?: string
-  margin?: string
 }
 
-const Wrapper = styled.div<Pick<AudioControlButtonsProps, 'margin'>>`
-  display: flex;
-  align-items: center;
-  margin: ${({ margin }) => margin};
-`
-
-const AudioControlButtons: React.FC<AudioControlButtonsProps> = ({
-  audio,
-  className,
-  margin = '0 0 0 0',
-}) => {
+const AudioControlButtons: React.FC<AudioControlButtonsProps> = ({ audio }) => {
   const [playing, setPlaying] = useState(false)
 
   const onClickPlay = () => {
@@ -58,15 +47,15 @@ const AudioControlButtons: React.FC<AudioControlButtonsProps> = ({
   audio.on('stop', () => setPlaying(false))
 
   return (
-    <Wrapper className={className} margin={margin}>
-      <SkipBackward onClick={onClickSkipBackward} />
+    <div>
+      <IconButton onClick={onClickSkipBackward} Icon={Replay10Icon} />
       {playing ? (
-        <Pause onClick={onClickPause} />
+        <IconButton onClick={onClickPause} Icon={PauseIcon} />
       ) : (
-        <Play onClick={onClickPlay} />
+        <IconButton onClick={onClickPlay} Icon={PlayArrowIcon} />
       )}
-      <SkipForward onClick={onClickSkipForward} />
-    </Wrapper>
+      <IconButton onClick={onClickSkipForward} Icon={Forward10Icon} />
+    </div>
   )
 }
 
