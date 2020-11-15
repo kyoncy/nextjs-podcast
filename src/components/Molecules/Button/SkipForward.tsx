@@ -1,6 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faForward } from '@fortawesome/free-solid-svg-icons/faForward'
-import Button from '../../Atoms/Button'
+import IconButton from '@material-ui/core/IconButton'
+import FastForwardIcon from '@material-ui/icons/FastForward'
 
 interface SkipForwardProps {
   onClick: () => void
@@ -8,9 +7,9 @@ interface SkipForwardProps {
 
 const SkipForward: React.FC<SkipForwardProps> = ({ onClick }) => {
   return (
-    <Button onClick={onClick} margin={'4px'} borderRadius={'100px'}>
-      <FontAwesomeIcon icon={faForward} />
-    </Button>
+    <IconButton onClick={onClick}>
+      <FastForwardIcon />
+    </IconButton>
   )
 }
 

@@ -1,6 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPause } from '@fortawesome/free-solid-svg-icons/faPause'
-import Button from '../../Atoms/Button'
+import IconButton from '@material-ui/core/IconButton'
+import PauseIcon from '@material-ui/icons/Pause'
 
 interface PauseProps {
   onClick: () => void
@@ -8,9 +7,9 @@ interface PauseProps {
 
 const Pause: React.FC<PauseProps> = ({ onClick }) => {
   return (
-    <Button onClick={onClick} margin={'4px'} borderRadius={'100px'}>
-      <FontAwesomeIcon icon={faPause} />
-    </Button>
+    <IconButton onClick={onClick}>
+      <PauseIcon />
+    </IconButton>
   )
 }
 

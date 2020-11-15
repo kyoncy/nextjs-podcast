@@ -1,6 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBackward } from '@fortawesome/free-solid-svg-icons/faBackward'
-import Button from '../../Atoms/Button'
+import IconButton from '@material-ui/core/IconButton'
+import FastRewindIcon from '@material-ui/icons/FastRewind'
 
 interface SkipBackwardProps {
   onClick: () => void
@@ -8,9 +7,9 @@ interface SkipBackwardProps {
 
 const SkipBackward: React.FC<SkipBackwardProps> = ({ onClick }) => {
   return (
-    <Button onClick={onClick} margin={'4px'} borderRadius={'100px'}>
-      <FontAwesomeIcon icon={faBackward} />
-    </Button>
+    <IconButton onClick={onClick}>
+      <FastRewindIcon />
+    </IconButton>
   )
 }
 
