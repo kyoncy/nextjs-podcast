@@ -1,21 +1,45 @@
 import { useState } from 'react'
+import styled from 'styled-components'
 import { Howl } from 'howler'
-import InputRange from '../../Atoms/InputRange'
+import Grid from '@material-ui/core/Grid'
+import Slider from '@material-ui/core/Slider'
+import VolumeDown from '@material-ui/icons/VolumeDown'
+import VolumeUp from '@material-ui/icons/VolumeUp'
 
 interface VolumeSeekbarProps {
   audio: Howl
 }
 
-const VolumeSeekbar: React.FC<VolumeSeekbarProps> = ({ audio }) => {
-  const [volume, setVolume] = useState(50)
+const StyledDiv = styled.div`
+  width: 200px;
+`
 
-  const onChangeSeekbar = (volume: number): void => {
-    audio.volume(volume / 100)
-    setVolume(volume)
+const VolumeSeekbar: React.FC<VolumeSeekbarProps> = ({ audio }) => {
+  const [value, setValue] = useState(50)
+
+  const handleChange = (_, newValue: number) => {
+    audio.volume(newValue / 100)
+    setValue(newValue)
   }
 
   return (
-    <InputRange min={0} max={100} value={volume} onChange={onChangeSeekbar} />
+    <StyledDiv>
+      <Grid container spacing={2}>
+        <Grid item>
+          <VolumeDown />
+        </Grid>
+        <Grid item xs>
+          <Slider
+            value={value}
+            onChange={handleChange}
+            aria-labelledby="continuous-slider"
+          />
+        </Grid>
+        <Grid item>
+          <VolumeUp />
+        </Grid>
+      </Grid>
+    </StyledDiv>
   )
 }
 

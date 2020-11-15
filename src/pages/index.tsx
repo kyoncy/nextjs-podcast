@@ -1,10 +1,8 @@
 import { Howl } from 'howler'
 import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import AudioPlayControlButton from '../components/Organisms/AudioControlButtons'
-import AudioSeekbar from '../components/Molecules/InputRange/AudioSeekbar'
-import VolumeSeekbar from '../components/Molecules/InputRange/VolumeSeekbar'
+import Container from '@material-ui/core/Container'
+import AudioControlCenter from '../components/templates/AudioControlCenter'
 // TODO: 仮でここにオーディオファイル置いてるだけなので適切な場所に
 import sample from '../audio/sample.mp3'
 
@@ -21,17 +19,20 @@ const Home: NextPage<HomeProps> = ({ audioFile }) => {
   })
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Podcast</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <VolumeSeekbar audio={audio} />
-        <AudioPlayControlButton audio={audio} />
-        <AudioSeekbar audio={audio} />
-      </main>
+      <Container maxWidth="sm">
+        hoge
+        <AudioControlCenter audio={audio} />
+      </Container>
     </div>
   )
 }
