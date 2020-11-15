@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Howl } from 'howler'
-import styled from 'styled-components'
 import IconButton from '../Atoms/IconButton'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import PauseIcon from '@material-ui/icons/Pause'
