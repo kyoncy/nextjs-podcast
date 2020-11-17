@@ -15,7 +15,7 @@ const StyledDiv = styled.div`
 `
 
 const VolumeSeekbar: React.FC<VolumeSeekbarProps> = ({ audio }) => {
-  const [value, setValue] = useState(50)
+  const [value, setValue] = useState(100)
 
   const handleChange = (_, newValue: number) => {
     audio.volume(newValue / 100)

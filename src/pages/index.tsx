@@ -40,12 +40,12 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
       <Container maxWidth="sm">
         <List>
           {posts.map((post) => {
-            const { path, filename } = post
+            const { path, filename, matter } = post
             return (
               <Fragment key={filename}>
                 <ListItem>
                   <ListItemText>
-                    <Link href={`posts/${path}`}>{filename}</Link>
+                    <Link href={`posts/${path}`}>{matter.title}</Link>
                   </ListItemText>
                 </ListItem>
                 <Divider />

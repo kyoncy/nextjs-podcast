@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import { Howl } from 'howler'
 import Grid from '@material-ui/core/Grid'
@@ -26,20 +26,18 @@ const AudioSeekbar: React.FC<AudioSeekbarProps> = ({ audio }) => {
     audio.seek(position)
   }
 
-  useEffect(() => {
-    audio.on('play', () => {
-      updateSeekbar()
-      clearInterval(intervalId)
-      intervalId = setInterval(updateSeekbar, 1000)
-    })
-    audio.on('seek', () => {
-      updateSeekbar()
-      clearInterval(intervalId)
-      intervalId = setInterval(updateSeekbar, 1000)
-    })
-    audio.on('pause', () => clearInterval(intervalId))
-    audio.on('stop', () => clearInterval(intervalId))
+  audio.on('play', () => {
+    updateSeekbar()
+    clearInterval(intervalId)
+    intervalId = setInterval(updateSeekbar, 1000)
   })
+  audio.on('seek', () => {
+    updateSeekbar()
+    clearInterval(intervalId)
+    intervalId = setInterval(updateSeekbar, 1000)
+  })
+  audio.on('pause', () => clearInterval(intervalId))
+  audio.on('stop', () => clearInterval(intervalId))
 
   return (
     <StyledDiv>
