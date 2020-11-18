@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Howl } from 'howler'
 import styled from 'styled-components'
 import Grid from '@material-ui/core/Grid'
@@ -17,6 +18,12 @@ const AudioControlCenterWrapper = styled.div`
 `
 
 const AudioControlCenter: React.FC<AudioControlCenterProps> = ({ audio }) => {
+  useEffect(() => {
+    return () => {
+      audio.stop()
+    }
+  })
+
   return (
     <AudioControlCenterWrapper>
       <Grid container item sm={8} justify="center" alignItems="center">
